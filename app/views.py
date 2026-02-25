@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template, request, redirect, url_for, flash
+import datetime
 
 
 ###
@@ -18,6 +19,22 @@ def about():
     return render_template('about.html', name="Mary Jane")
 
 
+@app.route('/profile')
+def profile():
+    """Render the website's profile page."""
+    date_joined = format_date_joined(datetime.date(2021, 9, 14))
+    return render_template('profile.html', date_joined=date_joined)
+
+
+###
+# Helper Functions
+###
+
+def format_date_joined(date):
+    """Given a date, returns it formatted as Month, Year (e.g. Feb, 2021)."""
+    return date.strftime("%B, %Y")
+
+
 ###
 # The functions below should be applicable to all Flask apps.
 ###
@@ -33,8 +50,7 @@ def send_text_file(file_name):
 def add_header(response):
     """
     Add headers to both force latest IE rendering engine or Chrome Frame,
-    and also tell the browser not to cache the rendered page. If we wanted
-    to we could change max-age to 600 seconds which would be 10 minutes.
+    and also tell the browser not to cache the rendered page.
     """
     response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
     response.headers['Cache-Control'] = 'public, max-age=0'

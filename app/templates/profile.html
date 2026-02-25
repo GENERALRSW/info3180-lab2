@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="profile-wrapper">
+  <div class="profile-card">
+
+    <div class="profile-header">
+      <img src="{{ url_for('static', filename='profile.png') }}" alt="Profile Photo" class="profile-photo">
+      <div class="profile-info">
+        <h2 class="profile-name">Raheem Williams</h2>
+        <p class="profile-username">@raheem_dev</p>
+        <p class="profile-location">
+          <i class="bi bi-geo-alt-fill"></i> Kingston, Jamaica
+        </p>
+        <p class="profile-joined">
+          <i class="bi bi-calendar3"></i> Joined {{ date_joined }}
+        </p>
+        <p class="profile-bio">
+          Computer Science student at UWI, passionate about full-stack development 
+          and building tech solutions for the Caribbean. Love turning ideas into 
+          clean, functional applications.
+        </p>
+        <button class="btn-follow">Follow</button>
+      </div>
+    </div>
+
+    <div class="profile-stats">
+      <div class="stat">
+        <span class="stat-number">142</span>
+        <span class="stat-label">Posts</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">1.4k</span>
+        <span class="stat-label">Followers</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">318</span>
+        <span class="stat-label">Following</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
